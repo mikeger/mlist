@@ -1,0 +1,16 @@
+PODS:
+  - FontAwesome-iOS (0.0.4)
+  - JASidePanels (1.2.0)
+  - TPKeyboardAvoiding (0.0.1)
+
+DEPENDENCIES:
+  - FontAwesome-iOS
+  - JASidePanels
+  - TPKeyboardAvoiding
+
+SPEC CHECKSUMS:
+  FontAwesome-iOS: 0c39b9f5d4687d36cf8958f61295c2b7960a7308
+  JASidePanels: 09e193b5154b577f7e507d3c508221a21726d157
+  TPKeyboardAvoiding: 5b71fd97d082f4a67fd65d3fb7d14bfbee6682d1
+
+COCOAPODS: 0.33.1
