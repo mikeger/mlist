@@ -27,7 +27,7 @@
 	[super viewDidLoad];
 	self.textView.text = self.item.text;
 	self.title = self.item.text;
-	self.textView.font = [UIFont fontWithName:@"TakeMeOut" size:18.0f];
+	self.textView.font = [UIFont fontWithName:@"TakeMeOut" size:25.0f];
 
 	[self.textView becomeFirstResponder];
 
@@ -48,6 +48,15 @@
 	}
 	
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:bttLeft];
+
+	UIButton* bttEdit = [UIButton buttonWithType:UIButtonTypeCustom];
+	bttEdit.titleLabel.font = [UIFont fontWithName:@"FontAwesome" size:18.0];
+	[bttEdit setTitle:[NSString awesomeIcon:FaPencil] forState:UIControlStateNormal];
+	[bttEdit setTitleEdgeInsets:UIEdgeInsetsMake(0, 4, 0, 0)];
+	[bttEdit addTarget:self action:@selector(editPressed) forControlEvents:UIControlEventTouchUpInside];
+	bttEdit.frame = CGRectMake(0, 0, 29, 29);
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:bttEdit];
+
 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onKeyboardShow:) name:UIKeyboardDidShowNotification object:nil];
 }
@@ -89,6 +98,10 @@
 	else {
 		[self.navigationController popViewControllerAnimated:YES];
 	}
+}
+
+- (void)editPressed {
+	self.textView.editable = !self.textView.editable;
 }
 
 - (void)onKeyboardShow:(NSNotification*)notification {

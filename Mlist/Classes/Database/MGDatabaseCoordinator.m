@@ -214,6 +214,7 @@
 				MGListItem* item = [MGListItem objectInContext:tmpContext];
 				item.uid = @(identifier);
 				item.text = text;
+				item.sortID = @(identifier);
 			}
 		}
 

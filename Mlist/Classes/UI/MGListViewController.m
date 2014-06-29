@@ -48,7 +48,7 @@
 
 	// Fetch controller creation.
 	NSFetchRequest* request = [[NSFetchRequest alloc] initWithEntityName:NSStringFromClass([MGListItem class])];
-	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"sortID" ascending:NO];
+	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"sortID" ascending:YES];
 	request.sortDescriptors = [NSArray arrayWithObject:descriptor];
 
 	NSManagedObjectContext* mac = [MGDatabaseCoordinator sharedCoordinator].managedObjectContext;
