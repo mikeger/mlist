@@ -42,9 +42,7 @@
 
 - (void)layoutSubviews {
 	[super layoutSubviews];
-	self.lineView.x = self.editing?(54.0f + 35.0f):54.0f;
-	self.itemTitleLabel.x = self.editing?(63.0f + 35.0f):63.0f;
-	self.itemTitleLabel.width = self.width - self.itemTitleLabel.x - 20.0f;
+	self.itemTitleLabel.width = self.width - self.itemTitleLabel.x - 20.0f - (self.editing?35.0f:0.0f);
 }
 
 @end

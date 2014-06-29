@@ -102,6 +102,9 @@
 
 - (void)editPressed {
 	self.textView.editable = !self.textView.editable;
+	if (self.textView.editable) {
+		[self.textView becomeFirstResponder];
+	}
 }
 
 - (void)onKeyboardShow:(NSNotification*)notification {

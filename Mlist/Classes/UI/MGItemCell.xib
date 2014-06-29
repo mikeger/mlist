@@ -38,7 +38,7 @@
 					<object class="IBUIView" id="69928950">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">276</int>
-						<string key="NSFrame">{{87, 0}, {1, 49}}</string>
+						<string key="NSFrame">{{47, 0}, {1, 50}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
@@ -51,7 +51,7 @@
 					<object class="IBUILabel" id="142904084">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">298</int>
-						<string key="NSFrame">{{96, 16}, {180, 22}}</string>
+						<string key="NSFrame">{{56, 16}, {244, 22}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="69928950"/>
@@ -179,15 +179,10 @@
 					<string key="className">MGItemCell</string>
 					<string key="superclassName">UITableViewCell</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="checkButton">UIButton</string>
 						<string key="itemTitleLabel">UILabel</string>
 						<string key="lineView">UIView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="checkButton" id="283739755">
-							<string key="name">checkButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
 						<object class="IBToOneOutletInfo" key="itemTitleLabel" id="645727731">
 							<string key="name">itemTitleLabel</string>
 							<string key="candidateClassName">UILabel</string>
@@ -213,12 +208,10 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">MGItemCell</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="checkButton">UIButton</string>
 						<string key="itemTitleLabel">UILabel</string>
 						<string key="lineView">UIView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<reference key="checkButton" ref="283739755"/>
 						<reference key="itemTitleLabel" ref="645727731"/>
 						<reference key="lineView" ref="499307709"/>
 					</dictionary>
