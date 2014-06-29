@@ -51,7 +51,7 @@
 	NSSortDescriptor* descriptor = [NSSortDescriptor sortDescriptorWithKey:@"sortID" ascending:NO];
 	request.sortDescriptors = [NSArray arrayWithObject:descriptor];
 
-	NSManagedObjectContext* mac = [SHDatabaseCoordinator sharedCoordinator].managedObjectContext;
+	NSManagedObjectContext* mac = [MGDatabaseCoordinator sharedCoordinator].managedObjectContext;
 	self.fetchController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
 															   managedObjectContext:mac
 																 sectionNameKeyPath:nil
@@ -204,7 +204,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 	if (editingStyle == UITableViewCellEditingStyleDelete) {
 		[[self.fetchController objectAtIndexPath:indexPath] delete];
 		NSError* err = nil;
-		[[SHDatabaseCoordinator sharedCoordinator].managedObjectContext save:&err];
+		[[MGDatabaseCoordinator sharedCoordinator].managedObjectContext save:&err];
 		if (err != nil) {
 			NSLog(@"Error: %@", err);
 		}

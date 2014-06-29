@@ -9,6 +9,7 @@
 #import "MGAppDelegate.h"
 #import "MGListViewController.h"
 #import "MGItemDetailViewController.h"
+#import "MGDatabaseCoordinator.h"
 #import <JASidePanels/JASidePanelController.h>
 
 @implementation MGAppDelegate
@@ -42,8 +43,11 @@
 	}
 	[self.window makeKeyAndVisible];
 
+	[[MGDatabaseCoordinator sharedCoordinator] preloadDatabase];
+
     return YES;
 }
+
 
 - (void)tweakAppearance {
 	UIColor* styleColor = [UIColor colorWithRed:102.0f/255.0f green:0.0f/255.0f blue:204.0f/255.0f alpha:1.0f];

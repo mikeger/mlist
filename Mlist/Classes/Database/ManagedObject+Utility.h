@@ -10,7 +10,8 @@
 
 @interface NSManagedObject (Utility)
 
-+ (id)object;
++ (instancetype)object;
++ (instancetype)objectInContext:(NSManagedObjectContext*)context;
 
 + (NSArray*)objectsWithPredicate:(NSPredicate*)predicate inContext:(NSManagedObjectContext*)context;
 + (NSArray*)objectsWithPredicate:(NSPredicate*)predicate;

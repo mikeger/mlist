@@ -11,9 +11,9 @@
 extern NSString* SHContentsDirectory;
 extern NSString* SHContentsThumbsDirectory;
 
-@interface SHDatabaseCoordinator : NSObject
+@interface MGDatabaseCoordinator : NSObject
 
-+ (SHDatabaseCoordinator*)sharedCoordinator;
++ (MGDatabaseCoordinator*)sharedCoordinator;
 
 @property (nonatomic, retain) NSManagedObjectModel *managedObjectModel;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
@@ -21,4 +21,5 @@ extern NSString* SHContentsThumbsDirectory;
 
 - (id)createObject:(NSString *)entityName;
 - (void)saveContext;
+- (void)preloadDatabase;
 @end

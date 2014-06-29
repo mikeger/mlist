@@ -7,7 +7,7 @@
 //
 
 #import "ManagedObject+Utility.h"
-#import "DatabaseCoordinator.h"
+#import "MGDatabaseCoordinator.h"
 #import <objc/runtime.h>
 
 
@@ -17,14 +17,21 @@
 
 @implementation NSManagedObject (Utility)
 
-+ (id)object {
-	NSManagedObject *obj = [[SHDatabaseCoordinator sharedCoordinator] createObject:NSStringFromClass([self class])];
++ (instancetype)object {
+	NSManagedObject *obj = [[MGDatabaseCoordinator sharedCoordinator] createObject:NSStringFromClass([self class])];
 	
 	return obj;
 }
 
++ (instancetype)objectInContext:(NSManagedObjectContext*)context {
+	NSManagedObject *obj = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([self class])
+														 inManagedObjectContext:context];
+
+	return obj;
+}
+
 + (NSArray*)objectsWithPredicate:(NSPredicate*)predicate {
-	return [self objectsWithPredicate:predicate inContext:[[SHDatabaseCoordinator sharedCoordinator] managedObjectContext]];
+	return [self objectsWithPredicate:predicate inContext:[[MGDatabaseCoordinator sharedCoordinator] managedObjectContext]];
 }
 
 + (NSArray*)objectsWithPredicate:(NSPredicate*)predicate inContext:(NSManagedObjectContext*)context {
@@ -51,12 +58,12 @@
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	
 	request.entity =[NSEntityDescription entityForName:NSStringFromClass(self) 
-								inManagedObjectContext:[[SHDatabaseCoordinator sharedCoordinator] managedObjectContext]];
+								inManagedObjectContext:[[MGDatabaseCoordinator sharedCoordinator] managedObjectContext]];
 	request.predicate = predicate;
 	request.includesSubentities = NO;
 	
 	NSError *err = nil;
-	NSUInteger count = [[[SHDatabaseCoordinator sharedCoordinator] managedObjectContext] countForFetchRequest:request
+	NSUInteger count = [[[MGDatabaseCoordinator sharedCoordinator] managedObjectContext] countForFetchRequest:request
 																										error:&err];
 	if(err != nil) {
 		NSLog(@"Error: %@", err);
@@ -70,7 +77,7 @@
 }
 
 + (NSArray*)getAll {
-	NSManagedObjectContext *context = [[SHDatabaseCoordinator sharedCoordinator] managedObjectContext];
+	NSManagedObjectContext *context = [[MGDatabaseCoordinator sharedCoordinator] managedObjectContext];
 	return [self getAllInContext:context];
 }
 
@@ -93,7 +100,7 @@
 
 + (NSUInteger)count:(NSError**)error {
 	NSFetchRequest* fetchRequest = [self fetchRequest];
-    NSManagedObjectContext *ctx = [[SHDatabaseCoordinator sharedCoordinator] managedObjectContext];
+    NSManagedObjectContext *ctx = [[MGDatabaseCoordinator sharedCoordinator] managedObjectContext];
 	return [ctx countForFetchRequest:fetchRequest error:error];
 }
 
@@ -108,7 +115,7 @@
 
 + (NSEntityDescription*)entity {
 	NSString* className = [NSString stringWithCString:class_getName([self class]) encoding:NSASCIIStringEncoding];
-    NSManagedObjectContext *ctx = [[SHDatabaseCoordinator sharedCoordinator] managedObjectContext];
+    NSManagedObjectContext *ctx = [[MGDatabaseCoordinator sharedCoordinator] managedObjectContext];
 	return [NSEntityDescription entityForName:className inManagedObjectContext:ctx];
 }
 
@@ -120,11 +127,11 @@
 }
 
 - (void)save {
-	[[SHDatabaseCoordinator sharedCoordinator] saveContext];
+	[[MGDatabaseCoordinator sharedCoordinator] saveContext];
 }
 
 - (void)delete {
-	NSManagedObjectContext *context = [[SHDatabaseCoordinator sharedCoordinator] managedObjectContext];
+	NSManagedObjectContext *context = [[MGDatabaseCoordinator sharedCoordinator] managedObjectContext];
 	[context deleteObject:self];
 }
 

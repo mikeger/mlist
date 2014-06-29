@@ -29,10 +29,6 @@
 	self.title = self.item.text;
 	self.textView.font = [UIFont fontWithName:@"TakeMeOut" size:18.0f];
 
-	self.backgroundView.layer.masksToBounds = NO;
-	self.backgroundView.layer.cornerRadius = 5.0f;
-	self.backgroundView.layer.borderWidth = 1.0f;
-	self.backgroundView.layer.borderColor = [UIColor blueColor].CGColor;
 	[self.textView becomeFirstResponder];
 
 	[self updateForNewText];

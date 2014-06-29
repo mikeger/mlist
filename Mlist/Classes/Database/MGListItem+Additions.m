@@ -11,7 +11,7 @@
 @implementation MGListItem (Additions)
 
 + (NSInteger)getMaxSortID {
-	NSManagedObjectContext* context = [SHDatabaseCoordinator sharedCoordinator].managedObjectContext;
+	NSManagedObjectContext* context = [MGDatabaseCoordinator sharedCoordinator].managedObjectContext;
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"MGListItem" inManagedObjectContext:context];
 	[request setEntity:entity];

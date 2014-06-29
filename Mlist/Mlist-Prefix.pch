@@ -16,6 +16,6 @@
 #import "UIApplication+Folders.h"
 #import "MGListItem.h"
 #import "ManagedObject+Utility.h"
-#import "DatabaseCoordinator.h"
+#import "MGDatabaseCoordinator.h"
 #import "UIView+Additions.h"
 #endif
